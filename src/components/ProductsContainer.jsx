@@ -1,12 +1,14 @@
-import React from 'react'
-import ProductsGrid from './ProductsGrid'
+import React from "react";
+import ProductsGrid from "./ProductsGrid";
+import ProductsList from "./ProductsList";
 
 const ProductsContainer = () => {
   return (
     <>
-        <ProductsGrid />
+      <ProductsList />
+      <ProductsGrid />
     </>
-  )
-}
+  );
+};
 
-export default ProductsContainer
+export default ProductsContainer;
