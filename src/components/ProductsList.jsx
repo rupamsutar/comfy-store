@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { formatPrice } from "../utils";
 
-const ProductsGrid = () => {
+const ProductsList = () => {
   const { products } = useLoaderData();
   
   return (
@@ -30,4 +30,4 @@ const ProductsGrid = () => {
   );
 };
 
-export default ProductsGrid;
+export default ProductsList;

@@ -1,8 +1,11 @@
 import React from 'react'
+import ProductsGrid from './ProductsGrid'
 
 const ProductsContainer = () => {
   return (
-    <div>ProductsContainer</div>
+    <>
+        <ProductsGrid />
+    </>
   )
 }
 
