@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLoaderData } from "react-router-dom";
-import { customFetch, formatPrice } from "../utils";
+import { customFetch, formatPrice, generateAmountOptions } from "../utils";
 import { Link } from "react-router-dom";
 
 export const loader = async ({ params }) => {
@@ -77,11 +77,13 @@ const SingleProduct = () => {
               </h4>
             </label>
             <select
-              name="select select-secondary select-bordered select-md"
+              className="select select-secondary select-bordered select-md"
               id="amount"
               value={amount}
               onChange={handleAmount}
-            ></select>
+            >
+              {generateAmountOptions(2)}
+            </select>
           </div>
           {/* Cart Btn */}
           <div className="mt-10">

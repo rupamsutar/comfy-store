@@ -13,4 +13,13 @@ export const formatPrice = (price) => {
     }).format(((price/100)*82).toFixed(2));
 
     return rupeesAmount;
+};
+
+export const generateAmountOptions = (number) => {
+    return Array.from({length: number}, (_, index) => {
+        const amount = index + 1;
+        return (
+            <option key={amount} value={amount}>{amount}</option>
+        )
+    })
 }
