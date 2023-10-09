@@ -28,7 +28,7 @@ const CartTotals = () => {
             <span className="font-medium">{formatPrice(tax)}</span>
           </p>
           {/* Order Total */}
-          <p className="flex justify-between text-sm mt-4 border-b border-base-300 pb-2">
+          <p className="flex justify-between text-sm mt-4 pb-2">
             <span>Order Total</span>
             <span className="font-medium">{formatPrice(orderTotal)}</span>
           </p>
