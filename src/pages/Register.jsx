@@ -1,9 +1,23 @@
 import React from 'react'
 import { Form, Link } from 'react-router-dom'
 import { FormInput, SubmitBtn } from '../components';
+import { customFetch } from '../utils';
+import { toast } from 'react-toastify';
 
-export const action = async() => {
-  return null;
+export const action = async({request}) => {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData);
+
+  try {
+    const response = await customFetch.post('/auth/local/register', data);
+    toast.success('Account created successfully');
+    return redirect('/login');
+  } catch (error) {
+    console.log("rupam",error)
+    const errorMessage = error?.response?.data?.error?.message || "Please double check credentials";
+    toast.error(errorMessage);
+    return null
+  }
 }
 
 const Register = () => {
