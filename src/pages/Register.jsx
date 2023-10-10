@@ -1,6 +1,10 @@
 import React from 'react'
 import { Form, Link } from 'react-router-dom'
-import { FormInput, SubmitBtn } from '../components'
+import { FormInput, SubmitBtn } from '../components';
+
+export const action = async() => {
+  return null;
+}
 
 const Register = () => {
   return (
