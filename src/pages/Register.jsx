@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Link } from 'react-router-dom'
+import { Form, Link, redirect } from 'react-router-dom'
 import { FormInput, SubmitBtn } from '../components';
 import { customFetch } from '../utils';
 import { toast } from 'react-toastify';
@@ -11,7 +11,7 @@ export const action = async({request}) => {
   try {
     const response = await customFetch.post('/auth/local/register', data);
     toast.success('Account created successfully');
-    return redirect('/login');
+    return redirect('/');
   } catch (error) {
     console.log("rupam",error)
     const errorMessage = error?.response?.data?.error?.message || "Please double check credentials";
