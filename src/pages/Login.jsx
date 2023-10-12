@@ -1,12 +1,26 @@
 import React from "react";
-import { Form, Link } from "react-router-dom";
+import { Form, Link, redirect } from "react-router-dom";
 import { FormInput, SubmitBtn } from "../components";
+import { customFetch } from "../utils";
+import { toast } from "react-toastify";
+import { loginUser } from "../features/user/userSlice";
 
 export const action = (store) => {
-  console.log("Rupam");
-  return () => {
-    console.log(store);
-    return null
+  return async({request}) => {
+    const formData = await request.formData();
+    const data1 = Object.fromEntries(formData);
+    try {
+      const {data} = await customFetch.post('/auth/local', data1);
+      store.dispatch(loginUser(data));
+      toast.success('Logged in successfully');
+      
+      return redirect('/login');
+    } catch (error) {
+      const errorMessage = error?.response?.data?.error?.message || 'Please check your credentials';
+      toast.error(errorMessage);
+      console.log(error);
+      return null
+    }
   }
 }
 
