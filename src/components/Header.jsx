@@ -13,8 +13,9 @@ const Header = () => {
     navigate('/');
     dispatch(clearCart());
     dispatch(logoutUser());
-
   }
+
+  console.log(user);
 
   return (
     <header className="bg-neutral py-2 text-neutral-content">

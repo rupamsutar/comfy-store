@@ -14,7 +14,7 @@ export const action = (store) => {
       store.dispatch(loginUser(data));
       toast.success('Logged in successfully');
       
-      return redirect('/login');
+      return redirect('/');
     } catch (error) {
       const errorMessage = error?.response?.data?.error?.message || 'Please check your credentials';
       toast.error(errorMessage);
