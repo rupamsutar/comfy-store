@@ -41,9 +41,10 @@ export const action =
         error?.response?.data?.error?.message ||
         "There was an error placing your order!";
       toast.error(errorMessage);
+      if (error.response.status === 401) return redirect('/login');
+      return null;
     }
 
-    return null;
   };
 
 const CheckoutForm = () => {
