@@ -25,7 +25,7 @@ const OrdersList = () => {
                     {orders.map((order) => {
                         const id = order.id;
                         const { name, address, numItemsInCart, orderTotal, createdAt} = order.attributes;
-                        const date = day(createdAt).format('hh:mm a - MMM Do, YYYY')
+                        const date = day(createdAt).format('hh:mm a - MMM D, YYYY')
 
                         return <tr key={id}>
                             <td>{name}</td>
