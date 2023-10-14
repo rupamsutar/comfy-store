@@ -1,7 +1,8 @@
 import React from "react";
-import { redirect } from "react-router-dom";
+import { redirect, useLoaderData } from "react-router-dom";
 import { toast } from "react-toastify";
 import { customFetch } from "../utils";
+import {SectionTitle, PaginationContainer, OrdersList} from "../components"
 
 export const loader =
   (store) =>
@@ -21,19 +22,32 @@ export const loader =
           Authorization: `Bearer ${user.token}`,
         },
       });
-      return { orders: response.data.data, meta: response.deta.meta };
+      console.log(response);
+      return { orders: response.data.data, meta: response.data.meta };
     } catch (error) {
       const errorMessage =
         error?.response?.data?.error?.message ||
         "There was an error placing your order!";
       toast.error(errorMessage);
-      if (error.response.status === 401) return redirect("/login");
+      if (error?.response?.status === 401) return redirect("/login");
       return null;
     }
   };
 
 const Orders = () => {
-  return <div>Orders</div>;
+  const {meta} = useLoaderData();
+
+  if (meta.pagination.total < 1) {
+    return <SectionTitle text='Please make an order' />
+  }
+
+  return (
+    <>
+      <SectionTitle text='Your Orders' />
+      <OrdersList />
+      <PaginationContainer />
+    </>
+  );
 };
 
 export default Orders;
