@@ -12,13 +12,13 @@ const Hero = () => {
   return (
     <div className="grid lg:grid-cols-2 gap-24 items-center">
       <div className="">
-        <h1 className="max-w-2xl text-4xl font-bold tracking-tight sm:text-6xl">
-            we are changing the way people shop
+        <h1 className="text-center sm:text-left max-w-2xl text-4xl font-bold tracking-tight sm:text-6xl">
+            We are changing the way people shop
         </h1>
-        <p className="mt-8 max-w-xl text-lg leading-8">
+        <p className="text-center sm:text-left mt-8 max-w-xl text-lg leading-8">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolores reiciendis doloribus eligendi, nisi ullam accusantium deserunt, eius quasi eaque corrupti, sunt vel. Tempora labore magni iusto accusantium quidem, voluptas esse?
         </p>
-        <div className="mt-10">
+        <div className="mt-10 mx-auto sm:mx-0 w-[140px]">
             <Link to='/products' className="btn btn-primary">
                 Our Products
             </Link>
